@@ -1,0 +1,35 @@
+\documentclass{report}
+
+\input{preamble}
+
+\title{\Huge{Some Class}\\Random Examples}
+\author{\Huge{Neptunium93}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage % or \cleardoublepage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+\newpage
+\pdfbookmark[section]{\contentsname}{toc}
+\tableofcontents
+\pagebreak
+
+\begin{lstlisting}[language=C++, caption={Write to stdout},label={lst:stream-out}]
+#include <iostream>
+
+int main(int argc, char *argv[]) {
+  std::cout << "Hello, World!" << std::endl;
+  return 0;
+}
+\end{lstlisting}
+% \lstinputlisting[language=C++,caption={External File Example},label={lst:external-file}]{file.cpp}
+
+\begin{tabular}{l V{3.5cm} r}
+  foo & blah      & bar \\
+  foo & blah blah & bar \\
+  foo & blah blah blah blah blah blah
+      & bar \\
+\end{tabular}
+
+\end{document}

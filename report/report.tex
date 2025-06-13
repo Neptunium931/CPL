@@ -72,9 +72,10 @@
 \paragraph{}Pour réaliser nos tests, nous avons mis en place un laboratoire de test. Ce laboratoire est composé de trois ordinateurs, de trois adaptateurs CPL et d'un réseau électrique isolé. L'image ci-dessous présente la configuration de notre laboratoire de test.
 
 \begin{figure}[ht]
-    \centering
+    % \centering
     \caption{Exemple de modulation d'amplitude, de fréquence et de phase}
     \begin{tikzpicture}[
+      scale=0.85,
       cpl/.style={
         draw,
         fill=blue!20,
@@ -107,14 +108,14 @@
         \draw[-, thick, blue] (cpl3) -- node[midway, above] {} (p); 
       
         % Légende
-        \node[draw, fill=white, above left=of cpl1, anchor=south east, yshift=0.5cm, text width=3cm] (legend) {
+        \node[draw, fill=white, below=of cpl1, text width=3cm] (legend) {
             \textbf{Légende:} \\
             \textcolor{green}{\textbf{---}} Cable rj45 \\
             \textcolor{blue}{\textbf{---}} Cable éléctrique 
         };
     \end{tikzpicture}
 \end{figure}
-=======
+
 \paragraph{}Dans ce laboratoire, les trois ordinateurs sont connectés à des adaptateurs CPL, qui sont eux-mêmes connectés au réseau électrique isolé. Le premier ordinateur (S) est utilisé comme serveur, le deuxième ordinateur (C) est utilisé comme client et le troisième ordinateur (A) est utilisé comme attaquant. Les adaptateurs CPL permettent de transmettre les données entre les ordinateurs via le réseau électrique.
 
 \section{Resultats des tests}

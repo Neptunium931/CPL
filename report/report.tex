@@ -51,6 +51,25 @@
     \item \textbf{Débit variable} : Les débits de transmission peuvent varier en fonction de la qualité de l'installation électrique.
 \end{itemize}
 
+
+
+\chapter{Test}
+\paragraph{}Dans cette parti nous allons nous attarder sur les differente test que nous avons pu effectuer sur des CPL. Pour nos test nous avons utiliser des CPL TL-PA4015P de la marque TP-Link. (a dev)
+\paragraph{}Afin de tester les CPL nous avons mis en place un réseau electrique isolé et sécurisé. Effectivement, notre lab est séparé du réseau électrique de l'école, avec un disjoncteur et un differentiel.
+\paragraph{}En plus des CPL, pour effectuer nos test nous avons utiliser trois ordinateurs. Les ordinateur seront connectés chacun à un adaptateur CPL, et les adaptateurs seront interconnectés via le réseau électrique. Les deux premiers ordinateurs seront utilisés pour simuler un échange de données, tandis que le troisième ordinateur sera utilisé pour tenter d'intercepter ces données.
+\paragraph{}Sur le premier ordinateur (appeler S ou Serveur), nous allons lancer un serveur HTTP simple. Sur le deuxième ordinateur (appeler C ou Client), nous allons utiliser un navigateur pour accéder à ce serveur. Le troisième ordinateur (appeler A ou Attaquant) sera configuré pour écouter le trafic réseau.
+
+
+\section{Presentation des tests}
+\paragraph{}Afin de repondre a nos objectifs, nous avons mis en place les tests suivants :
+\paragraph{Test de distribution des trames} Dans ce test, nous allons analysé la distribution des trames à travers le réseau CPL. Pour cela, nous allons utilisé un logiciel de capture de paquets sur l'ordinateur de l'attaquant pour observer si les trames sont transmises a tout les adaptateurs CPL ou seulement à ceux qui étaient directement connectés au serveur et au client. Une fois la capture de trame lancer, nous allons lancer le serveur HTTP sur l'ordinateur S, puis nous allons accéder à ce serveur depuis l'ordinateur C. 
+
+\paragraph{Test d'interseption des trames} Dans ce test, nous allons tenter d'intercepter les trames échangées entre le serveur et le client. Pour cela, nous allons utilisé une commande afin de faire du ARP spoofing et un logiciel de capture de paquets sur l'ordinateur attaquant. Une fois le logiciel de capture lancé, nous allons lancer le serveur HTTP sur l'ordinateur S, puis nous allons accéder à ce serveur depuis l'ordinateur C. Nous allons ensuite analyser les trames capturées pour voir si nous avons pu intercepter les données échangées entre le serveur et le client.
+
+\section{Presentation du lab}
+
+
+
 \appendix
 \chapter{Definitions}
 \section{}

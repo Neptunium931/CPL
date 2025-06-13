@@ -50,13 +50,13 @@
 \begin{itemize}
     \item \textbf{Interférences} : Les performances peuvent être affectées par des interférences provenant d'autres appareils électriques.
     \item \textbf{Distance limitée} : La qualité du signal peut diminuer avec la distance, surtout dans des installations complexes.
-    \item \textbf{Débit variable} : Les débits de transmission peuvent varier en fonction de la qualité de l'installation électrique.
+    \item \textbf{Débit variable} : Les débits de transmission peuvent varier en fonction de la qualité de l'installation électrique et des CPL utilisés.
 \end{itemize}
 
 
 
 \chapter{Déroulement des Test}
-\paragraph{}Dans cette parti nous allons nous attarder sur les differente test que nous avons pu effectuer sur des CPL. Pour nos test nous avons utiliser des CPL TL-PA4015P de la marque TP-Link. (a dev)
+\paragraph{}Dans cette parti nous allons nous attarder sur les differente test que nous avons pu effectuer sur des CPL. Pour nos test nous avons utiliser des CPL TL-PA4015P de la marque TP-Link.
 \paragraph{}Afin de tester les CPL nous avons mis en place un réseau electrique isolé et sécurisé. Effectivement, notre lab est séparé du réseau électrique de l'école, avec un disjoncteur et un differentiel.
 \paragraph{}En plus des CPL, pour effectuer nos test nous avons utiliser trois ordinateurs. Les ordinateur seront connectés chacun à un adaptateur CPL, et les adaptateurs seront interconnectés via le réseau électrique. Les deux premiers ordinateurs seront utilisés pour simuler un échange de données, tandis que le troisième ordinateur sera utilisé pour tenter d'intercepter ces données.
 \paragraph{}Sur le premier ordinateur (appeler S ou Serveur), nous allons lancer un serveur HTTP simple. Sur le deuxième ordinateur (appeler C ou Client), nous allons utiliser un navigateur pour accéder à ce serveur. Le troisième ordinateur (appeler A ou Attaquant) sera configuré pour écouter le trafic réseau.
@@ -70,10 +70,11 @@
 
 \section{Presentation du lab}
 \paragraph{}Pour réaliser nos tests, nous avons mis en place un laboratoire de test. Ce laboratoire est composé de trois ordinateurs, de trois adaptateurs CPL et d'un réseau électrique isolé. L'image ci-dessous présente la configuration de notre laboratoire de test.
+\paragraph{}Dans ce laboratoire, les trois ordinateurs sont connectés à des adaptateurs CPL, qui sont eux-mêmes connectés au réseau électrique isolé. Le premier ordinateur (S) est utilisé comme serveur, le deuxième ordinateur (C) est utilisé comme client et le troisième ordinateur (A) est utilisé comme attaquant. Les adaptateurs CPL permettent de transmettre les données entre les ordinateurs via le réseau électrique.
 
 \begin{figure}[ht]
     % \centering
-    \caption{Exemple de modulation d'amplitude, de fréquence et de phase}
+    \caption{schéma du laboratoire de test}
     \begin{tikzpicture}[
       scale=0.85,
       cpl/.style={
@@ -116,7 +117,6 @@
     \end{tikzpicture}
 \end{figure}
 
-\paragraph{}Dans ce laboratoire, les trois ordinateurs sont connectés à des adaptateurs CPL, qui sont eux-mêmes connectés au réseau électrique isolé. Le premier ordinateur (S) est utilisé comme serveur, le deuxième ordinateur (C) est utilisé comme client et le troisième ordinateur (A) est utilisé comme attaquant. Les adaptateurs CPL permettent de transmettre les données entre les ordinateurs via le réseau électrique.
 
 \section{Resultats des tests}
 \paragraph{}Nous avons effectuer les different test présenté précedament dans notre laboratoire de test. Les résultats de ces tests sont présentés ci-dessous.

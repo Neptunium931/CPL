@@ -71,9 +71,45 @@ Il existe plusieurs familles de modulation :
     \item \textbf{Modulation de Phase (PM)} : La phase du signal est modifiée pour représenter les données.
 \end{itemize}
 
+\includegraphics[scale=0.35]{images/ModulationExemple.png}
+
 \subsection{Modulation d'Amplitude (AM)}
+\paragraph{}Dans la modulation d'amplitude, l'amplitude du signal porteur est modifiée en fonction de l'information à transmettre. Par exemple, un signal numérique peut être représenté par deux niveaux d'amplitude : un niveau élevé pour un bit "1" et un niveau bas pour un bit "0". Cette technique est simple mais sensible aux interférences et au bruit.
+\paragraph{}Il existe plusieurs variantes de modulation d'amplitude :
+\begin{itemize}
+    \item \textbf{Modulation d'Amplitude (AM)} : La forme de base où l'amplitude du signal porteur est modifiée proportionnellement à l'amplitude du signal modulant.
+    \item \textbf{Modulation d'Amplitude en Quadrature (QAM)} : Combine deux signaux modulés en amplitude pour transmettre plus d'informations, souvent utilisée dans les communications numériques.
+    \item \textbf{Amplitude Shift Keying (ASK)} : Une forme de modulation numérique où les données binaires sont transmises en modifiant l'amplitude du signal porteur entre deux niveaux, la modulation est effectuée un ensemble discret de valeurs.
+\end{itemize}
+\paragraph{}La modulation d'amplitude est couramment utilisée dans les transmissions radio AM et dans certaines applications de communication numérique. Cependant, elle est moins résistante au bruit et aux interférences, ce qui peut entraîner une dégradation du signal.
 
+\subsection{Modulation de Fréquence (FM)}
+\paragraph{}Dans la modulation de fréquence, la fréquence du signal porteur est modifiée en fonction de l'information à transmettre. Cela permet de transmettre des données avec une meilleure résistance au bruit par rapport à la modulation d'amplitude. Par exemple, un bit "1" peut être représenté par une fréquence plus élevée, tandis qu'un bit "0" est représenté par une fréquence plus basse. 
+\paragraph{}Il existe plusieurs variantes de modulation de fréquence : 
+\begin{itemize}
+    \item \textbf{Modulation de Fréquence (FM)} : La forme de base où la fréquence instantanée de la porteuse varie proportionnellement à l'amplitude du signal modulant.
+    \item \textbf{Modulation par saut de fréquence (FSK)} : Utilisée dans les communications numériques, la FSK est une forme de modulation de fréquence où les données binaires sont transmises en changeant la fréquence de la porteuse entre un ensemble discret de valeurs.
+    \item \textbf{Minimum-Shift Keying (MSK)} : Une forme de FSK continue-phase où les changements de fréquence se produisent aux croisements de zéro du signal, ce qui minimise l'occupation spectrale.
+\end{itemize}
+\paragraph{}La modulation de fréquence est souvent utilisée dans les transmissions radio et audio. Cette technique est particulièrement efficace pour les communications à longue distance, car elle réduit les effets des interférences et du bruit.
 
+\subsection{Modulation de Phase (PM)}
+\paragraph{}Dans la modulation de phase, la phase du signal porteur est modifiée en fonction de l'information à transmettre. Par exemple, un bit "1" peut être représenté par un décalage de phase de 180 degrés, tandis qu'un bit "0" reste inchangé. Cette technique est moins courante que la modulation d'amplitude et de fréquence, mais elle est utilisée dans certaines applications spécifiques.
+\begin{itemize}
+    \item \textbf{Modulation de Phase (PM)} : La forme de base où la phase du signal porteur est modifiée proportionnellement à l'amplitude du signal modulant.
+    \item \textbf{Phase Shift Keying (PSK)} : Une forme de modulation numérique où les données binaires sont transmises en changeant la phase du signal porteur entre un ensemble discret de valeurs.
+    \item \textbf{Quadrature Phase Shift Keying (QPSK)} : Une forme avancée de PSK qui permet de transmettre deux bits par symbole en utilisant quatre phases différentes.
+    \item \textbf{Differential Phase Shift Keying (DPSK)} : Une variante de PSK où la phase du signal est modifiée par rapport à la phase du symbole précédent, ce qui permet une meilleure résistance aux erreurs de phase.
+\end{itemize}
+\paragraph{}La modulation de phase est souvent utilisée dans les systèmes de communication numériques, où elle peut offrir une meilleure efficacité spectrale et une résistance accrue aux interférences. Elle est également utilisée dans des technologies telles que le Wi-Fi et le Bluetooth, où la qualité du signal est cruciale.
 
+\subsection{Combinaison de modulations}
+\paragraph{}Enfin, il est important de noter que ces techniques de modulation peuvent etre combiner pour former des systèmes de modulation plus complexes. Par exemple, la modulation d'amplitude en quadrature (QAM) combine la modulation d'amplitude et la modulation de phase pour transmettre plusieurs bits par symbole, ce qui augmente l'efficacité spectrale. De même, la modulation de fréquence en quadrature (QFM) combine la modulation de fréquence et la modulation de phase pour améliorer la robustesse du signal.
+
+\section{Encodage des données}
+
+\paragraph{}L'encodage des données est le processus de conversion des données numériques en un format qui peut être transmis sur un support analogique. Par exemple, un chiffre decimal est encodé en binaire, puis en un signal analogique à l'aide de techniques de modulation.
+\paragraph{}Dans la majorité des systèmes de communication, les données numériques sont d'abord converties en binaire, puis les bits sont regroupés en symboles. Chaque symbole peut représenter un ensemble de bits, et la modulation est utilisée pour convertir ces symboles en signaux analogiques. Par exemple, dans la modulation d'amplitude en quadrature (QAM), chaque symbole peut représenter plusieurs bits, ce qui permet une transmission plus efficace des données.
+\paragraph{}L'utilisation de symboles permet de réduire la complexité de la transmission et d'augmenter l'efficacité spectrale. Par exemple, dans le cas de la modulation QAM, chaque symbole peut représenter 2, 4, 8, ou même 16 bits, en fonction du nombre de niveaux d'amplitude et de phase utilisés. Cela permet de transmettre plus d'informations en utilisant moins de bande passante.
 
 \end{document}

@@ -67,7 +67,14 @@
 \paragraph{Test d'interseption des trames} Dans ce test, nous allons tenter d'intercepter les trames échangées entre le serveur et le client. Pour cela, nous allons utilisé une commande afin de faire du ARP spoofing et un logiciel de capture de paquets sur l'ordinateur attaquant. Une fois le logiciel de capture lancé, nous allons lancer le serveur HTTP sur l'ordinateur S, puis nous allons accéder à ce serveur depuis l'ordinateur C. Nous allons ensuite analyser les trames capturées pour voir si nous avons pu intercepter les données échangées entre le serveur et le client.
 
 \section{Presentation du lab}
+\paragraph{}Pour réaliser nos tests, nous avons mis en place un laboratoire de test. Ce laboratoire est composé de trois ordinateurs, de trois adaptateurs CPL et d'un réseau électrique isolé. L'image ci-dessous présente la configuration de notre laboratoire de test.
 
+\begin{figure}[h]
+    \centering
+    \caption{Laboratoire de test}
+    \label{fig:Laboratoire}
+    \includegraphics[scale=0.35]{images/lab.png}
+\end{figure}
 
 
 \appendix
@@ -90,7 +97,12 @@ Il existe plusieurs familles de modulation :
     \item \textbf{Modulation de Phase (PM)} : La phase du signal est modifiée pour représenter les données.
 \end{itemize}
 
-\includegraphics[scale=0.35]{images/ModulationExemple.png}
+\begin{figure}[h]
+    \centering
+    \caption{Exemple de modulation d'amplitude, de fréquence et de phase}
+    \label{fig:modulation_example}
+    \includegraphics[scale=0.35]{images/ModulationExemple.png}
+\end{figure}
 
 \subsection{Modulation d'Amplitude (AM)}
 \paragraph{}Dans la modulation d'amplitude, l'amplitude du signal porteur est modifiée en fonction de l'information à transmettre. Par exemple, un signal numérique peut être représenté par deux niveaux d'amplitude : un niveau élevé pour un bit "1" et un niveau bas pour un bit "0". Cette technique est simple mais sensible aux interférences et au bruit.

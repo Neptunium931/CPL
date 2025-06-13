@@ -1,6 +1,8 @@
-\documentclass[a4paper,draft,twocolumn]{report}
+\documentclass[a4paper,twocolumn]{report}
 
 \input{preamble}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 
 \title{\Huge{Exploraion des failles CPL}\\Mission Oteria M1}
 \author{Tymothé BILLEREY, Thomas LIEUMONT}
@@ -69,13 +71,49 @@
 \section{Presentation du lab}
 \paragraph{}Pour réaliser nos tests, nous avons mis en place un laboratoire de test. Ce laboratoire est composé de trois ordinateurs, de trois adaptateurs CPL et d'un réseau électrique isolé. L'image ci-dessous présente la configuration de notre laboratoire de test.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
-    \caption{Laboratoire de test}
-    \label{fig:Laboratoire}
-    \includegraphics[scale=0.35]{images/lab.png}
-\end{figure}
+    \caption{Exemple de modulation d'amplitude, de fréquence et de phase}
+    \begin{tikzpicture}[
+      cpl/.style={
+        draw,
+        fill=blue!20,
+        circle,
+        minimum size= 1cm
+      },
+      pc/.style={
+        draw,
+        rectangle,
+        fill=green!20,
+        minimum width={width("router/serveur")+2pt},
+        minimum height={height("/")+16pt},
+      }
+      ]
+        \node[cpl] (cpl1) at (0,0) {CPL};
+        \node[pc] (pc1) at (0,2) {client};
+        \draw[-, thick, green] (cpl1) -- node[midway, above] {} (pc1);
 
+        \node[cpl] (cpl2) at (3,0) {CPL};
+        \node[pc] (pc2) at (3,2) {router/serveur};
+        \draw[-, thick, green] (cpl2) -- node[midway, above] {} (pc2); 
+
+        \node[cpl] (cpl3) at (6,0) {CPL};
+        \node[pc, fill=red!20] (pc3) at (6,2) {attaquant};
+        \draw[-, thick, green] (cpl3) -- node[midway, above] {} (pc3); 
+
+        \node[circle, draw, fill=blue] (p) at (3,-2) {};
+        \draw[-, thick, blue] (cpl1) -- node[midway, above] {} (p); 
+        \draw[-, thick, blue] (cpl2) -- node[midway, above] {} (p); 
+        \draw[-, thick, blue] (cpl3) -- node[midway, above] {} (p); 
+      
+        % Légende
+        \node[draw, fill=white, above left=of cpl1, anchor=south east, yshift=0.5cm, text width=3cm] (legend) {
+            \textbf{Légende:} \\
+            \textcolor{green}{\textbf{---}} Cable rj45 \\
+            \textcolor{blue}{\textbf{---}} Cable éléctrique 
+        };
+    \end{tikzpicture}
+\end{figure}
 
 \appendix
 \chapter{Definitions}
@@ -97,11 +135,11 @@ Il existe plusieurs familles de modulation :
     \item \textbf{Modulation de Phase (PM)} : La phase du signal est modifiée pour représenter les données.
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \caption{Exemple de modulation d'amplitude, de fréquence et de phase}
     \label{fig:modulation_example}
-    \includegraphics[scale=0.35]{images/ModulationExemple.png}
+    \includegraphics[scale=0.25]{images/ModulationExemple.png}
 \end{figure}
 
 \subsection{Modulation d'Amplitude (AM)}

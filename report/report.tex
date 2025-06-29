@@ -126,14 +126,14 @@ Les adaptateurs CPL permettent de transmettre les données entre les ordinateurs
 	  scale=0.85,
 	  cpl/.style={
 		draw,
-		fill=blue!20,
+		fill=blue!50,
 		circle,
 		minimum size= 1cm
 	  },
 	  pc/.style={
 		draw,
 		rectangle,
-		fill=green!20,
+		fill=green!50,
 		minimum width={width("router/serveur")+2pt},
 		minimum height={height("/")+16pt},
 	  }
@@ -147,7 +147,7 @@ Les adaptateurs CPL permettent de transmettre les données entre les ordinateurs
 		\draw[-, thick, green] (cpl2) -- node[midway, above] {} (pc2); 
 
 		\node[cpl] (cpl3) at (6,0) {CPL};
-		\node[pc, fill=red!20] (pc3) at (6,2) {attaquant};
+		\node[pc, fill=red!50] (pc3) at (6,2) {attaquant};
 		\draw[-, thick, green] (cpl3) -- node[midway, above] {} (pc3); 
 
 		\node[circle, draw, fill=blue] (p) at (3,-2) {};

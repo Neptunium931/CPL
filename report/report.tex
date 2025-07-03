@@ -136,6 +136,24 @@ qui sont eux-mêmes connectés au réseau électrique isolé. Le premier ordinat
 le deuxième ordinateur (C) est utilisé comme client et le troisième ordinateur (A) est utilisé comme attaquant.
 Les adaptateurs CPL permettent de transmettre les données entre les ordinateurs via le réseau électrique.
 
+\subsection{List des test}
+les tests suivant sont fait dans deux cas avec et sans ARP posiing
+\begin{itemize}
+  \item le client commque deja avec le serveur quant l'attaquant se connecte
+  \item le client ne commque pas avec le serveur quant l'attaquant se connecte
+  \item le client so connecte apers que apres que l'attaquant attaque
+  \item l'attaquant ajout un CPL, le client commique dejat avec le server
+  \item l'attaquant ajout un CPL, le client ne commiqur pas deja avec le server
+  \item le client ajoute un CPL. l'attaque est deja encoure
+  \item le client ajoute un CPL. l'attaque n'est pas deja encoure
+\end{itemize}
+
+autre tests
+\begin{itemize}
+  \item l'attaquant ce fait passer pour un CPL (envoie de la trameHello)
+\end{itemize}
+
+
 \begin{figure}[ht]
 	% \centering
 	\caption{Schéma du laboratoire de test}

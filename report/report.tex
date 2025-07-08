@@ -20,7 +20,7 @@
 \chapter{Contexte}
 
 \section{Cadre}
-\paragraph{}Dans le cadre de nos études en Master 1 à Oteria, nous avons à réaliser un projet en rapport avec la sécurité informatique. Pour ce faire nous l'équipe suivante: 
+\paragraph{}Dans le cadre de nos études en Master 1 à Oteria, nous avons à réaliser un projet en rapport avec la sécurité informatique. Pour ce faire nous l'équipe suivante:
 
 \paragraph{Tymothé BILLEREY} dans le role de chef de projet. Ayant fait ...
 
@@ -102,7 +102,7 @@ que nous avons pu effectuer sur des CPL. Pour nos tests, nous avons utilisé des
 isolé et sécurisé. En effet, notre lab est séparé du réseau électrique de l'école,
 avec un disjoncteur et un différentiel.
 \paragraph{}En plus des CPL, pour effectuer nos tests, nous avons utilisé trois ordinateurs.
-Les ordinateurs seront connectés chacun à un adaptateur CPL, et les adaptateurs 
+Les ordinateurs seront connectés chacun à un adaptateur CPL, et les adaptateurs
 seront interconnectés via le réseau électrique. Les deux premiers ordinateurs seront utilisés
 pour simuler un échange de données, tandis que le troisième ordinateur sera utilisé pour tenter
 d'intercepter ces données.
@@ -118,7 +118,7 @@ des trames à travers le réseau CPL. Pour cela, nous allons utiliser un logicie
 de paquets sur l'ordinateur de l'attaquant pour observer si les trames sont transmises à tous
 les adaptateurs CPL ou seulement à ceux qui étaient directement connectés au serveur et au client.
 Une fois la capture de trames lancée, nous allons lancer le serveur HTTP sur l'ordinateur S,
-puis nous allons accéder à ce serveur depuis l'ordinateur C. 
+puis nous allons accéder à ce serveur depuis l'ordinateur C.
 
 \paragraph{Test d'interception des trames} Dans ce test, nous allons tenter d'intercepter
 les trames échangées entre le serveur et le client. Pour cela, nous allons utiliser une commande
@@ -137,15 +137,14 @@ le deuxième ordinateur (C) est utilisé comme client et le troisième ordinateu
 Les adaptateurs CPL permettent de transmettre les données entre les ordinateurs via le réseau électrique.
 
 \subsection{List des test}
-les tests suivant sont fait dans deux cas avec et sans ARP posiing
+Les tests suivants sont effectués dans deux cas : avec et sans ARP poisoning.
 \begin{itemize}
-  \item le client commque deja avec le serveur quant l'attaquant se connecte
-  \item le client ne commque pas avec le serveur quant l'attaquant se connecte
-  \item le client so connecte apers que apres que l'attaquant attaque
-  \item l'attaquant ajout un CPL, le client commique dejat avec le server
-  \item l'attaquant ajout un CPL, le client ne commiqur pas deja avec le server
-  \item le client ajoute un CPL. l'attaque est deja encoure
-  \item le client ajoute un CPL. l'attaque n'est pas deja encoure
+  \item Le client communique déjà avec le serveur quand l'attaquant se connecte.
+  \item Le client ne communique pas avec le serveur quand l'attaquant se connecte.
+  \item Le client se connecte après que l'attaquant a attaqué.
+  \item L'attaquant ajoute un CPL, le client communique déjà avec le serveur
+  \item L'attaquant ajoute un CPL, le client ne communique pas déjà avec le serveur
+  \item Le client ajoute un CPL.
 \end{itemize}
 
 autre tests
@@ -179,71 +178,123 @@ autre tests
 
 		\node[cpl] (cpl2) at (3,0) {CPL};
 		\node[pc] (pc2) at (3,2) {routeur/serveur};
-		\draw[-, thick, green] (cpl2) -- node[midway, above] {} (pc2); 
+		\draw[-, thick, green] (cpl2) -- node[midway, above] {} (pc2);
 
 		\node[cpl] (cpl3) at (6,0) {CPL};
 		\node[pc, fill=red!50] (pc3) at (6,2) {attaquant};
-		\draw[-, thick, green] (cpl3) -- node[midway, above] {} (pc3); 
+		\draw[-, thick, green] (cpl3) -- node[midway, above] {} (pc3);
 
 		\node[circle, draw, fill=blue] (p) at (3,-2) {};
-		\draw[-, thick, blue] (cpl1) -- node[midway, above] {} (p); 
-		\draw[-, thick, blue] (cpl2) -- node[midway, above] {} (p); 
-		\draw[-, thick, blue] (cpl3) -- node[midway, above] {} (p); 
-	  
+		\draw[-, thick, blue] (cpl1) -- node[midway, above] {} (p);
+		\draw[-, thick, blue] (cpl2) -- node[midway, above] {} (p);
+		\draw[-, thick, blue] (cpl3) -- node[midway, above] {} (p);
+	 
 		% Légende
 		\node[draw, fill=white, below=of cpl1, text width=3cm] (legend) {
 			\textbf{Légende:} \\
 			\textcolor{green}{\textbf{---}} Câble RJ45 \\
-			\textcolor{blue}{\textbf{---}} Câble électrique 
+			\textcolor{blue}{\textbf{---}} Câble électrique
 		};
 	\end{tikzpicture}
 \end{figure}
 
 
 \section{Résultats des tests}
-\paragraph{}Nous avons effectué les différents tests présentés précédemment dans notre laboratoire de test.
-Les résultats de ces tests sont présentés ci-dessous.
 
-\subsection{Test de distribution des trames}
-\paragraph{}Dans ce test, nous avons utilisé un logiciel de capture de paquets sur 
-l'ordinateur attaquant pour observer la distribution des trames à travers le réseau CPL. 
-\paragraph{}N'ayant pas capturé de trames, nous avons conclu que les trames n'étaient
-pas transmises par tous les adaptateurs CPL vers les ordinateurs,
-mais seulement aux ordinateurs qui étaient directement concernés (ici le serveur et le client).
+\subsection{Test 1 : Client communique déjà avec le serveur quand l'attaquant se connecte}
+\paragraph{Sans ARP Spoofing :}
 
-\subsection{Test d'interception des trames}
-\paragraph{}Dans ce test, nous avons utilisé un logiciel de capture de paquets sur 
-l'ordinateur attaquant pour tenter d'intercepter les trames échangées entre le serveur et le client.
-Nous avons également utilisé une commande pour effectuer de l'ARP spoofing afin 
-de rediriger le trafic réseau vers l'ordinateur attaquant.
-\paragraph{}Après avoir lancé le serveur HTTP sur l'ordinateur S et accédé à ce serveur
-depuis l'ordinateur C, nous avons pu capturer les trames échangées entre le serveur et le client.
-Les données capturées ont été analysées et nous avons pu constater que les trames étaient bien transmises
-entre le serveur et le client, mais que l'attaquant pouvait également intercepter
-ces trames grâce à l'ARP spoofing. Une attaque de type man-in-the-middle a donc pu être réalisée,
-permettant à l'attaquant de lire les données échangées entre le serveur et le client.
+Dans ce scénario, le client maintient une connexion stable avec le serveur.
+L'attaquant, bien qu'il soit connecté au réseau, ne parvient pas à intercepter
+les communications entre le client et le serveur. Les données échangées restent sécurisées,
+et aucune anomalie n'est détectée.
+
+\paragraph{Avec ARP Spoofing :}
+L'attaquant réussit à usurper l'adresse MAC du serveur,
+mais cela n'affecte pas la communication en cours.
+Le client ne renouvelle pas sa table ARP, donc il continue à envoyer des paquets
+au serveur sans être conscient de l'attaque. Les données restent sécurisées tant
+que le client ne renouvelle pas sa table ARP.
+
+\subsection{Test 2 : Client ne communique pas avec le serveur quand l'attaquant se connecte}
+\paragraph{Sans ARP Spoofing :}
+
+Dans ce cas, le client n'étant pas en communication avec le serveur, l'attaquant
+ne peut pas intercepter de données. Le réseau reste sécurisé,
+et aucune donnée n'est compromise.
+
+\paragraph{Avec ARP Spoofing :}
+
+Bien que le client ne soit pas en communication avec le serveur, l'attaquant peut
+toujours usurper l'adresse MAC du serveur. Si le client initie une connexion ultérieure,
+l'attaquant pourrait intercepter les données dès le début de la communication.
+
+\subsection{Test 3 : Client se connecte après que l'attaquant a attaqué}
+\paragraph{Sans ARP Spoofing :}
+Le client établit une connexion sécurisée avec le serveur. L'attaquant,
+n'ayant pas réussi à usurper l'adresse MAC, ne peut pas intercepter les données échangées.
+
+\paragraph{Avec ARP Spoofing :}
+Lorsque le client se connecte, l'attaquant a déjà usurpé l'adresse MAC du serveur.
+Ainsi, toutes les données échangées entre le client et le serveur sont interceptées,
+compromettant la sécurité de la communication.
+
+\subsection{Test 4 : L'attaquant ajoute un CPL}
+\paragraph{Sans ARP Spoofing :}
+Dans ce scénario, l'attaquant ne peut pas intercepter de données,
+car le client n'est pas en communication avec le serveur.
+L'ajout d'un CPL n'a pas d'impact sur la sécurité du réseau.
+
+\paragraph{Avec ARP Spoofing :}
+L'attaquant peut toujours usurper l'adresse MAC du serveur.
+Si le client initie une connexion après l'ajout du CPL,
+l'attaquant peut intercepter les données dès le début de la communication.
+
+\subsection{Test 5 : L'attaquant ajoute un CPL, le client communique déjà avec le serveur}
+\paragraph{Sans ARP Spoofing :}
+Dans ce scénario, l'attaquant ne peut pas intercepter de données,
+car le client n'est pas en communication avec le serveur.
+L'ajout d'un CPL n'a pas d'impact sur la sécurité du réseau.
+
+\paragraph{Avec ARP Spoofing :}
+L'attaquant réussit à usurper l'adresse MAC du serveur,
+mais cela n'affecte pas la communication en cours.
+Le client ne renouvelle pas sa table ARP, donc il continue à envoyer des paquets
+au serveur sans être conscient de l'attaque. Les données restent sécurisées tant
+que le client ne renouvelle pas sa table ARP.
+
+\subsection{Test 6 : L'attaquant ajoute un CPL, le client ne communique pas déjà avec le serveur}
+\paragraph{Sans ARP Spoofing :}
+Le client, en ajoutant un CPL, ne compromet pas la sécurité de la communication,
+car l'attaquant n'a pas réussi à usurper l'adresse MAC. Les données échangées restent sécurisées.
+
+\paragraph{Avec ARP Spoofing :}
+Dans ce cas, le client, en ajoutant un CPL, ne se rend pas compte que l'attaquant a déjà usurpé l'adresse MAC.
+Les données échangées peuvent être interceptées, compromettant ainsi la sécurité de la communication.
+
+
 
 \section{Conclusion des tests}
 \paragraph{}Nos tests ont montré que les CPL se comportent de manière similaire
 aux réseaux Ethernet en ce qui concerne la distribution des trames et l'interception des données.
-Les trames ne sont pas diffusées à tous les adaptateurs CPL, mais seulement 
+Les trames ne sont pas diffusées à tous les adaptateurs CPL, mais seulement
 à ceux qui sont directement concernés par la communication. Cependant,
 il est possible d'intercepter les données échangées entre le serveur et le client
 en utilisant des techniques telles que l'ARP spoofing. Cela souligne l'importance de
 sécuriser les communications sur les résZeaux CPL, tout comme sur les réseaux Ethernet traditionnels.
 
-\chapter{Conclusion} 
+\chapter{Conclusion}
 
-\paragraph{}En conclusion, les tests effectués sur les courants porteurs 
-en ligne (CPL) ont révélé que, bien que cette technologie offre une solution 
+\paragraph{}En conclusion, les tests effectués sur les courants porteurs
+en ligne (CPL) ont révélé que, bien que cette technologie offre une solution
 pratique pour la transmission de données via les lignes électriques existantes,
-elle présente des vulnérabilités similaires à celles des réseaux Ethernet. 
+elle présente des vulnérabilités similaires à celles des réseaux Ethernet.
 Les résultats montrent que les trames ne sont pas diffusées à tous les adaptateurs CPL,
 mais uniquement à ceux qui sont directement impliqués dans la communication. Cependant,
 l'utilisation de techniques telles que l'ARP spoofing permet à un attaquant d'intercepter
 les données échangées entre le serveur et le client, soulignant ainsi la nécessité de
 mettre en œuvre des mesures de sécurité appropriées pour protéger les communications sur les réseaux CPL.
-\paragraph{}De plus, nos tests n'ont été effectués que sur un modèle de CPL spécifique 
+\paragraph{}De plus, nos tests n'ont été effectués que sur un modèle de CPL spécifique
 (TP-Link TL-PA4015P), et il est possible que d'autres modèles présentent des comportements différents.
 Il serait donc intéressant de mener des recherches supplémentaires sur d'autres modèles
 de CPL pour évaluer leur sécurité et leur résilience face aux attaques potentielles.
@@ -251,12 +302,12 @@ de CPL pour évaluer leur sécurité et leur résilience face aux attaques poten
 \section{Travaux futurs}
 Le travail futur devrait se concentrer sur le développement et la mise en œuvre
 de protocoles de sécurité améliorés spécifiquement adaptés aux environnements de CPL.
-Cela peut inclure l'intégration de méthodes de chiffrement, de systèmes de détection 
+Cela peut inclure l'intégration de méthodes de chiffrement, de systèmes de détection
 d'intrusion et des audits de sécurité réguliers pour identifier et atténuer les risques.
 De plus, des recherches supplémentaires sont nécessaires pour explorer l'efficacité de
 ces mesures de sécurité dans des scénarios réels, garantissant que les réseaux CPL
 peuvent être utilisés de manière sûre et efficace dans diverses applications.
-\section{}En outre, il serait intéressant d'explorer si d'autres modèles de CPL 
+\section{}En outre, il serait intéressant d'explorer si d'autres modèles de CPL
 présentent les mêmes failles que ceux que nous avons testés. Cela permettrait de
 mieux comprendre l'étendue des vulnérabilités dans les réseaux CPL et d'identifier
 les meilleures pratiques pour sécuriser ces systèmes. Des études comparatives entre
@@ -276,7 +327,7 @@ Cela peut impliquer des changements dans l'amplitude, la fréquence ou la phase 
 
 
 
-\paragraph{}Dans le cas des courants porteurs en ligne (CPL), la modulation est utilisée 
+\paragraph{}Dans le cas des courants porteurs en ligne (CPL), la modulation est utilisée
 pour superposer les signaux numériques sur les signaux électriques existants dans les lignes électriques.
 Cela permet de transmettre des données à haut débit sur des infrastructures électriques existantes,
 sans nécessiter de câblage supplémentaire.
@@ -285,7 +336,7 @@ sans nécessiter de câblage supplémentaire.
 \paragraph{}La modulation du signal est la technique qui permet de transmettre
 des données numériques (0 ou 1) sur un support analogique.
 En clair, cela signifie qu'une suite de 0 et de 1 est intégrée dans un signal sinusoïdal,
-ce qui permet de transmettre ces données sur un support qui ne peut pas transporter directement des signaux numériques. 
+ce qui permet de transmettre ces données sur un support qui ne peut pas transporter directement des signaux numériques.
 
 \section{Types de modulation}
 Il existe plusieurs familles de modulation :
@@ -303,7 +354,7 @@ Il existe plusieurs familles de modulation :
 \end{figure}
 
 \subsection{Modulation d'Amplitude (AM)}
-\paragraph{}Dans la modulation d'amplitude, l'amplitude du signal porteur est 
+\paragraph{}Dans la modulation d'amplitude, l'amplitude du signal porteur est
 modifiée en fonction de l'information à transmettre. Par exemple, un signal numérique
 peut être représenté par deux niveaux d'amplitude : un niveau élevé pour un bit "1"
 et un niveau bas pour un bit "0". Cette technique est simple mais sensible aux interférences et au bruit.
@@ -311,7 +362,7 @@ et un niveau bas pour un bit "0". Cette technique est simple mais sensible aux i
 \begin{itemize}
 	\item \textbf{Modulation d'Amplitude (AM)} :<F14>
     La forme de base où l'amplitude du signal porteur est modifiée proportionnellement à l'amplitude du signal modulant.
-	\item \textbf{Modulation d'Amplitude en Quadrature (QAM)} : 
+	\item \textbf{Modulation d'Amplitude en Quadrature (QAM)} :
     Combine deux signaux modulés en amplitude pour transmettre plus d'informations,
     souvent utilisée dans les communications numériques.
 	\item \textbf{Amplitude Shift Keying (ASK)} :
@@ -324,12 +375,12 @@ radio AM et dans certaines applications de communication numérique. Cependant,
 elle est moins résistante au bruit et aux interférences, ce qui peut entraîner une dégradation du signal.
 
 \subsection{Modulation de Fréquence (FM)}
-\paragraph{}Dans la modulation de fréquence, la fréquence du signal porteur est 
+\paragraph{}Dans la modulation de fréquence, la fréquence du signal porteur est
 modifiée en fonction de l'information à transmettre. Cela permet de transmettre
 des données avec une meilleure résistance au bruit par rapport à la modulation d'amplitude.
 Par exemple, un bit "1" peut être représenté par une fréquence plus élevée,
-tandis qu'un bit "0" est représenté par une fréquence plus basse. 
-\paragraph{}Il existe plusieurs variantes de modulation de fréquence : 
+tandis qu'un bit "0" est représenté par une fréquence plus basse.
+\paragraph{}Il existe plusieurs variantes de modulation de fréquence :
 \begin{itemize}
 	\item \textbf{Modulation de Fréquence (FM)} :
     La forme de base où la fréquence instantanée de la porteuse varie proportionnellement
@@ -338,7 +389,7 @@ tandis qu'un bit "0" est représenté par une fréquence plus basse.
     Utilisée dans les communications numériques, la FSK est une forme de modulation
     de fréquence où les données binaires sont transmises en changeant
     la fréquence de la porteuse entre un ensemble discret de valeurs.
-	\item \textbf{Minimum-Shift Keying (MSK)} : 
+	\item \textbf{Minimum-Shift Keying (MSK)} :
     Une forme de FSK à phase continue où les changements de fréquence se produisent
     aux croisements de zéro du signal, ce qui minimise l'occupation spectrale.
 \end{itemize}
@@ -348,14 +399,14 @@ car elle réduit les effets des interférences et du bruit.
 
 \subsection{Modulation de Phase (PM)}
 \paragraph{}Dans la modulation de phase, la phase du signal porteur est modifiée
-en fonction de l'information à transmettre. 
+en fonction de l'information à transmettre.
 Par exemple, un bit "1" peut être représenté par un décalage de phase de 180 degrés,
 tandis qu'un bit "0" reste inchangé. Cette technique est moins courante que la modulation d'amplitude et de fréquence,
 mais elle est utilisée dans certaines applications spécifiques.
 \begin{itemize}
 	\item \textbf{Modulation de Phase (PM)} :
     La forme de base où la phase du signal porteur est modifiée proportionnellement à l'amplitude du signal modulant.
-	\item \textbf{Phase Shift Keying (PSK)} : 
+	\item \textbf{Phase Shift Keying (PSK)} :
     Une forme de modulation numérique où les données binaires sont transmises en
     changeant la phase du signal porteur entre un ensemble discret de valeurs.
 	\item \textbf{Quadrature Phase Shift Keying (QPSK)} :
@@ -381,7 +432,7 @@ combine la modulation de fréquence et la modulation de phase pour améliorer la
 
 \paragraph{}L'encodage des données est le processus de conversion des données numériques
 en un format qui peut être transmis sur un support analogique.
-Par exemple, un chiffre décimal est encodé en binaire, puis en un signal 
+Par exemple, un chiffre décimal est encodé en binaire, puis en un signal
 analogique à l'aide de techniques de modulation.
 \paragraph{}Dans la majorité des systèmes de communication, les données numériques
 sont d'abord converties en binaire, puis les bits sont regroupés en symboles.
@@ -391,7 +442,7 @@ Par exemple, dans la modulation d'amplitude en quadrature (QAM), chaque symbole
 peut représenter plusieurs bits, ce qui permet une transmission plus efficace des données.
 \paragraph{}L'utilisation de symboles permet de réduire la complexité de la transmission
 et d'augmenter l'efficacité spectrale. Par exemple, dans le cas de la modulation QAM,
-chaque symbole peut représenter 2, 4, 8, ou même 16 bits, en fonction du nombre de 
+chaque symbole peut représenter 2, 4, 8, ou même 16 bits, en fonction du nombre de
 niveaux d'amplitude et de phase utilisés. Cela permet de transmettre plus d'informations
 en utilisant moins de bande passante.
 

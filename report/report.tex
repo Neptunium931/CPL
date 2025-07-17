@@ -144,13 +144,11 @@ Les tests suivants sont effectués dans deux cas : avec et sans ARP poisoning.
 \begin{itemize}
   \item Le client communique déjà avec le serveur quand l'attaquant se connecte.
   \item Le client ne communique pas avec le serveur quand l'attaquant se connecte.
-  \item Le client se connecte après que l'attaquant a attaqué.
   \item L'attaquant ajoute un CPL, le client communique déjà avec le serveur
   \item L'attaquant ajoute un CPL, le client ne communique pas déjà avec le serveur
-  \item Le client ajoute un CPL.
 \end{itemize}
 
-autre tests
+Autre tests
 \begin{itemize}
   \item l'attaquant ce fait passer pour un CPL (envoie de la trameHello)
 \end{itemize}
@@ -232,28 +230,7 @@ Bien que le client ne soit pas en communication avec le serveur, l'attaquant peu
 toujours usurper l'adresse MAC du serveur. Si le client initie une connexion ultérieure,
 l'attaquant pourrait intercepter les données dès le début de la communication.
 
-\subsection{Test 3 : Client se connecte après que l'attaquant a attaqué}
-\paragraph{Sans ARP Spoofing :}
-Le client établit une connexion sécurisée avec le serveur. L'attaquant,
-n'ayant pas réussi à usurper l'adresse MAC, ne peut pas intercepter les données échangées.
-
-\paragraph{Avec ARP Spoofing :}
-Lorsque le client se connecte, l'attaquant a déjà usurpé l'adresse MAC du serveur.
-Ainsi, toutes les données échangées entre le client et le serveur sont interceptées,
-compromettant la sécurité de la communication.
-
-\subsection{Test 4 : L'attaquant ajoute un CPL}
-\paragraph{Sans ARP Spoofing :}
-Dans ce scénario, l'attaquant ne peut pas intercepter de données,
-car le client n'est pas en communication avec le serveur.
-L'ajout d'un CPL n'a pas d'impact sur la sécurité du réseau.
-
-\paragraph{Avec ARP Spoofing :}
-L'attaquant peut toujours usurper l'adresse MAC du serveur.
-Si le client initie une connexion après l'ajout du CPL,
-l'attaquant peut intercepter les données dès le début de la communication.
-
-\subsection{Test 5 : L'attaquant ajoute un CPL, le client communique déjà avec le serveur}
+\subsection{Test 3 : L'attaquant ajoute un CPL, le client communique déjà avec le serveur}
 \paragraph{Sans ARP Spoofing :}
 Dans ce scénario, l'attaquant ne peut pas intercepter de données,
 car le client n'est pas en communication avec le serveur.
@@ -266,7 +243,7 @@ Le client ne renouvelle pas sa table ARP, donc il continue à envoyer des paquet
 au serveur sans être conscient de l'attaque. Les données restent sécurisées tant
 que le client ne renouvelle pas sa table ARP.
 
-\subsection{Test 6 : L'attaquant ajoute un CPL, le client ne communique pas déjà avec le serveur}
+\subsection{Test 4 : L'attaquant ajoute un CPL, le client ne communique pas déjà avec le serveur}
 \paragraph{Sans ARP Spoofing :}
 Le client, en ajoutant un CPL, ne compromet pas la sécurité de la communication,
 car l'attaquant n'a pas réussi à usurper l'adresse MAC. Les données échangées restent sécurisées.

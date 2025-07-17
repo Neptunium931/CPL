@@ -251,6 +251,13 @@ car l'attaquant n'a pas réussi à usurper l'adresse MAC. Les données échangé
 Dans ce cas, l'attaquant, en ajoutant un CPL, l'attaquant est en mesure mener l'attaque.
 Les données échangées peuvent être interceptées, compromettant ainsi la sécurité de la communication.
 
+\subsection{Test 5 : L'attaquant place son CPL derrière les éléments de sécurité}
+\paragraph{Sans ARP Spoofing :}
+Dans ce scénario, l'attaquant place son CPL derrière les éléments de sécurité du réseau. Cela signifie que le CPL est isolé des autres CLP par un disjoncteur et un différentiel.
+L'attaquant, n'ayant pas réussi à usurper l'adresse MAC, ne peut pas intercepter les données échangées.
+\paragraph{Avec ARP Spoofing :}
+L'attaquant réussit à usurper l'adresse MAC du serveur, le client est donc vulnérables dès qu'il initie une connexion.
+D'apres nos tests, la présence d'un disjoncteur et d'un différentiel n'affecte pas la capacité de l'attaquant à intercepter les données échangées.
 
 
 \section{Conclusion des tests}
@@ -260,7 +267,8 @@ Les trames ne sont pas diffusées à tous les adaptateurs CPL, mais seulement
 à ceux qui sont directement concernés par la communication. Cependant,
 il est possible d'intercepter les données échangées entre le serveur et le client
 en utilisant des techniques telles que l'ARP spoofing. Cela souligne l'importance de
-sécuriser les communications sur les résZeaux CPL, tout comme sur les réseaux Ethernet traditionnels.
+sécuriser les communications sur les réseaux CPL, tout comme sur les réseaux Ethernet traditionnels.
+\paragraph{}De plus, nos tests on montré que placé un CPL derrière des éléments de sécurité tels qu'un disjoncteur et un différentiel n'affecte pas la capacité de l'attaquant à intercepter les données échangées.
 
 \chapter{Conclusion}
 
@@ -341,7 +349,7 @@ peut être représenté par deux niveaux d'amplitude : un niveau élevé pour un
 et un niveau bas pour un bit "0". Cette technique est simple mais sensible aux interférences et au bruit.
 \paragraph{}Il existe plusieurs variantes de modulation d'amplitude :
 \begin{itemize}
-	\item \textbf{Modulation d'Amplitude (AM)} :<F14>
+	\item \textbf{Modulation d'Amplitude (AM)} :
     La forme de base où l'amplitude du signal porteur est modifiée proportionnellement à l'amplitude du signal modulant.
 	\item \textbf{Modulation d'Amplitude en Quadrature (QAM)} :
     Combine deux signaux modulés en amplitude pour transmettre plus d'informations,
